@@ -2,4 +2,4 @@
   = link_to quote.name, quote_path(quote)
   .quote__actions
     = button_to "Delete", quote_path(quote), method: :delete, class: "btn btn--light"
-    = button_to "Edit", edit_quote_path(quote), class: "btn btn--light"
+    = link_to "Edit", edit_quote_path(quote), method: :put, class: "btn btn--light"
