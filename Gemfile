@@ -11,6 +11,7 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
 gem 'slim-rails'
+gem 'simple_form'
 gem "redis", ">= 4.0.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
