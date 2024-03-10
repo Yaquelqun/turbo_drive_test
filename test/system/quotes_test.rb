@@ -5,24 +5,6 @@ class QuotesTest < ApplicationSystemTestCase
     @quote = quotes(:first)
   end
 
-  test "Creating a new quote" do
-    # Go on index
-    visit quotes_path
-    assert_selector "h1", text: "Quotes"
-
-    # Go to new page
-    click_on "New quote"
-    assert_selector "h1", text: "New quote"
-
-    # Fill and submit form
-    fill_in "Name", with: "Capybara quote"
-    click_on "Create quote"
-
-    #We're back in the index with the new quote name
-    assert_selector "h1", text: "Quotes"
-    assert_text "Capybara quote"
-  end
-
   test "Showing a quote" do
     visit quotes_path
     click_link @quote.name
@@ -30,14 +12,26 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: @quote.name
   end
 
+  test "Creating a new quote" do
+    visit quotes_path
+    assert_selector "h1", text: "Quotes"
+
+    click_on "New quote"
+    fill_in "Name", with: "Capybara quote"
+    assert_selector "h1", text: "Quotes"
+    click_on "Create quote"
+
+    assert_selector "h1", text: "Quotes"
+    assert_text "Capybara quote"
+  end
+
   test "Updating a quote" do
     visit quotes_path
     assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit quote"
-
     fill_in "Name", with: "Updated quote"
+    assert_selector "h1", text: "Quotes"
     click_on "Update quote"
 
     assert_selector "h1", text: "Quotes"
