@@ -2,6 +2,8 @@ main.container
   .header
     h1
       | Quotes
-    = link_to "New quote", new_quote_path, class: "btn btn--primary"
+    = link_to "New quote", new_quote_path, class: "btn btn--primary", data: { turbo_frame: "new_quote" }
 
-  = render @quotes
+  = turbo_frame_tag "new_quote"
+  = turbo_frame_tag "quotes"
+    = render @quotes

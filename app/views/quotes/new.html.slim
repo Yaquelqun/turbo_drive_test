@@ -4,5 +4,6 @@ main.container
   .header
     h1
       |New quote
-  
-  = render "form", quote: @quote
+
+  = turbo_frame_tag @quote
+    = render "form", quote: @quote
