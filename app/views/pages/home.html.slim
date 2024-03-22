@@ -1,0 +1,9 @@
+main.container
+  h1
+    | Quote  Editor
+  p
+    A blazing fast quote editor built with Hotwire
+
+  - if user_signed_in?
+    = link_to "View quotes", quotes_path, class: "btn btn--dark"
+    = link_to "Sign in", new_user_session_path, class: "btn btn--dark"

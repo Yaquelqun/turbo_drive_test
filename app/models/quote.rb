@@ -1,5 +1,5 @@
 class Quote < ApplicationRecord
-  belongs_to :company
+  belongs_to :company, optional: true
 
   validates :name, presence: true
 
